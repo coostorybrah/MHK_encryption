@@ -20,6 +20,6 @@
 
 ### 2.2 Chạy test cases
 
-- Click vào chữ Test Cases ở nav bar (header), sau khi chuyển trang bấm nút Run test cases
+- Click vào chữ Test Cases ở nav bar (header), sau khi chuyển trang bấm nút Run test
 
 - Chương trình có sẵn bộ 15 test cases được lưu ở file json trong tệp tests, kiểm tra các tình huống cơ bản (đọc file errors.py để tìm hiểu thêm).
