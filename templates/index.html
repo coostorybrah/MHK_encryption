@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <title>MHK Encryption</title>
+</head>
+
+<body>
+
+    {% include "includes/navbar.html" %}
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- KEY -->
+        <section>
+            <h2>Generate Key</h2>
+            
+            <p class="input-label">A (vd: 2,3,7,15,31)</p>
+            <input id="A">
+
+            <p class="input-label">u (vd: 17)</p>
+            <input id="u">
+
+            <p class="input-label">M (vd: 100)</p>
+            <input id="M">
+
+            <button onclick="generateKey()">Generate</button>
+
+            <div class="result" id="key-result"></div>
+        </section>
+
+        <!-- ENCRYPT -->
+        <section>
+            <h2>Encrypt</h2>
+
+            <p class="input-label">Plaintext (vd: "HELLO")</p>
+            <input id="enc-P">
+
+            <button onclick="encrypt()">Encrypt</button>
+            <div class="result">
+                <p id="encrypt-bits"></p>
+                <p id="encrypt-cipher"></p>
+            </div>
+        </section>
+
+        <!-- DECRYPT -->
+        <section>
+            <h2>Decrypt</h2>
+
+            <p class="input-label">Cipher</p>
+            <input id="dec-C" disabled>
+
+            <button onclick="decrypt()">Decrypt</button>
+
+            <div class="result">
+                <p id="decrypt-cphay"></p>
+                <p id="decrypt-bits"></p>
+                <p id="decrypt-text"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

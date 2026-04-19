@@ -1,0 +1,227 @@
+[
+    {
+        "id": 1,
+        "name": "HELLO basic",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "HELLO"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [0,0,1,1,1,0,0,1,0,0,0,1,0,1,1,0,1,0,1,1,0,1,1,1,0],
+            "cipher": [1, 19, 33, 33, 25],
+            "plaintext": "HELLO"
+        }
+    },
+    {
+        "id": 2,
+        "name": "ABC simple",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "ABC"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [0,0,0,0,0,0,0,0,0,1,0,0,0,1,0],
+            "cipher": [0, 27, 55],
+            "plaintext": "ABC"
+        }
+    },
+    {
+        "id": 3,
+        "name": "ZZZ edge letters",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "ZZZ"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [1,1,0,0,1,1,1,0,0,1,1,1,0,0,1],
+            "cipher": [12, 12, 12],
+            "plaintext": "ZZZ"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Single letter A",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "A"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [0,0,0,0,0],
+            "cipher": [0],
+            "plaintext": "A"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Single letter Z",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "Z"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [1,1,0,0,1],
+            "cipher": [12],
+            "plaintext": "Z"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Lowercase input",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "hello"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [0,0,1,1,1,0,0,1,0,0,0,1,0,1,1,0,1,0,1,1,0,1,1,1,0],
+            "cipher": [1, 19, 33, 33, 25],
+            "plaintext": "HELLO"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Input with spaces",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "HELLO WORLD"
+        },
+        "expected": {
+            "error_code": "INVALID_CHARACTER"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Invalid character input",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "HELLO123"
+        },
+        "expected": {
+            "error_code": "INVALID_CHARACTER"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Empty plaintext",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": ""
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [],
+            "cipher": [],
+            "plaintext": ""
+        }
+    },
+    {
+        "id": 10,
+        "name": "Long plaintext",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "CRYPTO"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [0,0,0,1,0,1,0,0,0,1,1,1,0,0,0,0,1,1,1,1,1,0,0,1,1,0,1,1,1,0],
+            "cipher": [55, 61, 85, 52, 16, 25],
+            "plaintext": "CRYPTO"
+        }
+    },
+    {
+        "id": 11,
+        "name": "Different valid superincreasing sequence",
+        "input": {
+            "A": [1, 2, 4, 9, 20],
+            "u": 3,
+            "M": 50,
+            "plaintext": "ABC"
+        },
+        "expected": {
+            "S": [3, 6, 12, 27, 10],
+            "bits": [0,0,0,0,0,0,0,0,0,1,0,0,0,1,0],
+            "cipher": [0, 10, 27],
+            "plaintext": "ABC"
+        }
+    },
+    {
+        "id": 12,
+        "name": "Invalid superincreasing sequence",
+        "input": {
+            "A": [2, 3, 5, 10, 20],
+            "u": 17,
+            "M": 100,
+            "plaintext": "ABC"
+        },
+        "expected": {
+            "error_code": "INVALID_SUPERINCREASING"
+        }
+    },
+    {
+        "id": 13,
+        "name": "Invalid modulus M",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 50,
+            "plaintext": "ABC"
+        },
+        "expected": {
+            "error_code": "INVALID_MODULUS"
+        }
+    },
+    {
+        "id": 14,
+        "name": "u not coprime with M",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 20,
+            "M": 100,
+            "plaintext": "ABC"
+        },
+        "expected": {
+            "error_code": "NOT_COPRIME"
+        }
+    },
+    {
+        "id": 15,
+        "name": "Encryption-Decryption consistency",
+        "input": {
+            "A": [2, 3, 7, 15, 31],
+            "u": 17,
+            "M": 100,
+            "plaintext": "SECURE"
+        },
+        "expected": {
+            "S": [34, 51, 19, 55, 27],
+            "bits": [1,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0,0,1,0,0,0,1,0,0,1,0,0],
+            "cipher": [89, 19, 55, 53, 61, 19],
+            "plaintext": "SECURE"
+        }
+    }
+]

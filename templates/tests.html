@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Test Dashboard</title>
+</head>
+
+<body>
+
+    {% include "includes/navbar.html" %}
+
+    <main>
+        <div class="section">
+            <button onclick="runTests()" id="runTestCaseBtn">Run Tests</button>
+
+            <table id="test-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>S</th>
+                        <th>Bits</th>
+                        <th>Cipher</th>
+                        <th>Plaintext</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <h3 id="summary"></h3>
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/runTests.js') }}"></script>
+</body>
+</html>
