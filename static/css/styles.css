@@ -215,3 +215,52 @@ tr {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+/* ===== TEST DETAILS IMPROVEMENT ===== */
+
+.test-details h4 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.test-details p {
+    margin: 0;
+    padding: 12px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    font-family: monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    white-space: pre-wrap;
+}
+
+/* Make each column feel like a card */
+.test-details > div {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.test-details > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Create a consistent header area */
+.test-details h4 {
+    height: 50px; /* fixed header height */
+    
+    display: flex;
+    align-items: center;     /* vertical center */
+    justify-content: center; /* horizontal center */
+
+    margin: 0 0 10px 0;
+
+    border-bottom: 2px solid #ddd;
+}

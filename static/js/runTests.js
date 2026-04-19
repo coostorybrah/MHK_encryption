@@ -54,12 +54,12 @@ async function runTests() {
                     </div>
 
                     <div>
-                        <h4>Expected</h4>
+                        <h4>Expected Result</h4>
                         <p>${formatObject(test.expected)}</p>
                     </div>
 
                     <div>
-                        <h4>Actual</h4>
+                        <h4>Actual Result</h4>
                         <p>${formatObject(test.actual)}</p>
                     </div>
                 </div>
